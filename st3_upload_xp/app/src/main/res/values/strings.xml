@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Arc st3 upload</string>
+    <string name="xposed_description">Upload arcaea local records.</string>
+
+</resources>

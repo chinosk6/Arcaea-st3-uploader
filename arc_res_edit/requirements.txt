@@ -1,0 +1,4 @@
+pydub
+moviepy
+Pillow
+numpy
