@@ -98,6 +98,21 @@ class FileUploader(context: Context) {
         return File(context.filesDir, filePath)
     }
 
+    fun deleteWebAPISidCache() {
+        val cacheFile = getFile("webapi_sid_cache.txt")
+        if (cacheFile.exists()) {
+            if (cacheFile.delete()) {
+                showToast("已清除缓存")
+            }
+            else {
+                showToast("缓存清除失败")
+            }
+        }
+        else {
+            showToast("缓存不存在")
+        }
+    }
+
     private fun checkCacheWebCookieAndGetMe(onMeData: (meData: String?, cacheFile: File) -> Unit) {
         val cacheFile = getFile("webapi_sid_cache.txt")
         if (!cacheFile.exists()) {

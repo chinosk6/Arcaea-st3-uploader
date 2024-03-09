@@ -104,11 +104,15 @@ class GameHookMain : IXposedHookLoadPackage, IXposedHookZygoteInit, IXposedHookI
     private fun showPopupMenu(context: Context, anchor: View, rootView: ViewGroup) {
         val popupMenu = PopupMenu(context, anchor)
         popupMenu.menu.add("Upload st3")
+        popupMenu.menu.add("Delete login cache")
         popupMenu.menu.add("Close Menu")
         popupMenu.setOnMenuItemClickListener { item ->
             when (item.title) {
                 "Upload st3" -> {
                     FileUploader(context).uploadSt3()
+                }
+                "Delete login cache" -> {
+                    FileUploader(context).deleteWebAPISidCache()
                 }
                 "Close Menu" -> {
                     rootView.removeView(anchor)
